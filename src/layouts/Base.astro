@@ -3,11 +3,18 @@ import { getLangFromUrl } from '@i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 
-interface Props {
-	title: string;
+interface SeoTags {
+	description: string,
+	keywords: string,
+	robots?: string
 }
 
-const { title } = Astro.props;
+interface Props {
+	title: string;
+	seoTags: SeoTags
+}
+
+const { title, seoTags } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,8 +23,19 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="" />
 		<meta name="generator" content={Astro.generator} />
+
+		<link rel="stylesheet" href="../assets/css/main.css">
+
+		<!-- SEO -->
+		<meta name="description" content={seoTags.description}>
+		<meta name="keywords" content={seoTags.keywords}>
+		<meta name="author" content="Snowmilk Teas">
+		<meta name="robots" content={seoTags.robots || "index, follow"}>
+
+		<link rel="canonical" href="TODO parametrizar la url canónica">
+
 		<title>{title}</title>
 	</head>
 	<body>
@@ -35,11 +53,6 @@ const { title } = Astro.props;
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-size: 224px;
-		height: 100%;
 	}
 	body {
 		/* background: rgb(255,255,255);

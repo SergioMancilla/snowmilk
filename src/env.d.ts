@@ -1,1 +1,9 @@
 /// <reference types="astro/client" />
+
+interface ImportMetaEnv {
+    readonly PUBLIC_SITE_URL: StaticRangeInit
+}
+
+interface importMeta {
+    readonly env: ImportMetaEnv
+}

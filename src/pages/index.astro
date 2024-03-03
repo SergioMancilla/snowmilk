@@ -1,13 +1,20 @@
 ---
 import Base from '@layouts/Base.astro'
 
-import Header from '@components/UI/Header.astro'
+import Header from '@components/UI/Header/Header.astro'
+import Footer from '@components/UI/Footer.astro'
+
+const seoTags = {
+	description: 'Somos Snowmilk Teas, conócenos y disfruta de la mejor experiencia en comida y bubble teas al estilo japonés',
+	keywords: 'snowmilk, nosotros, comida, bebidas, presentación'
+}
 ---
 
-<Base title="Snowmilk">
+<Base title="Snowmilk" seoTags={seoTags}>
 	<Header></Header>
 
 	<main>
 		
 	</main>
+
 </Base>
