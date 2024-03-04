@@ -1,6 +1,8 @@
 ---
 import { getLangFromUrl } from '@i18n/utils'
 
+import Header from '@components/UI/Header/Header.astro'
+
 const lang = getLangFromUrl(Astro.url)
 
 interface SeoTags {
@@ -15,6 +17,8 @@ interface Props {
 }
 
 const { title, seoTags } = Astro.props;
+
+const cannonicalUrl = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <!doctype html>
@@ -27,6 +31,8 @@ const { title, seoTags } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 
 		<link rel="stylesheet" href="../assets/css/main.css">
+		<!-- Tabler icons -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
 
 		<!-- SEO -->
 		<meta name="description" content={seoTags.description}>
@@ -34,11 +40,27 @@ const { title, seoTags } = Astro.props;
 		<meta name="author" content="Snowmilk Teas">
 		<meta name="robots" content={seoTags.robots || "index, follow"}>
 
-		<link rel="canonical" href="TODO parametrizar la url canónica">
+		<!-- URL Canónica -->
+		<link rel="canonical" href={cannonicalUrl}>
+
+		 <!-- Open Graph / Facebook -->
+		 <meta property="og:type" content="website" />
+		 <meta property="og:url" content={Astro.url} />
+		 <meta property="og:title" content={title} />
+		 <meta property="og:description" content={seoTags.description} />
+		 <meta property="og:image" content={new URL('TODO poner imagen para miniaturas', Astro.url)} />
+	 
+		 <!-- Twitter -->
+		 <meta property="twitter:card" content="summary_large_image" />
+		 <meta property="twitter:url" content={Astro.url} />
+		 <meta property="twitter:title" content={title} />
+		 <meta property="twitter:description" content={seoTags.description} />
+		 <meta property="twitter:image" content={new URL('TODO poner imagen para miniaturas', Astro.url)} />
 
 		<title>{title}</title>
 	</head>
 	<body>
+		<Header></Header>
 		<slot />
 	</body>
 </html>
@@ -54,9 +76,19 @@ const { title, seoTags } = Astro.props;
 			white 60%
 		);
 	}
-	body {
-		/* background: rgb(255,255,255);
-		background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,168,254,1) 52%, rgba(0,212,255,1) 100%);
-		background-repeat: no-repeat; */
+
+	::-webkit-scrollbar-track {
+		border-radius: 10px;
+		background-color: #fce7f2;
+	}
+
+	::-webkit-scrollbar {
+		width: 8px;
+		background-color: #F5F5F5;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: #f472b9;
 	}
 </style>

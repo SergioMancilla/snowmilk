@@ -1,0 +1,48 @@
+---
+import MenuItem from './MenuItem.astro'
+import MenuButton from './MenuButton.astro'
+---
+
+<nav class="flex items-center">
+    <div id="menu" class="flex flex-col justify-center absolute top-0 left-0 w-full overflow-hidden transition-all ease-in-out duration-500 bg-primary-400 border-none rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70 border border-gray-100
+                md:relative md:h-auto md:bg-inherit md:rounded-none md:backdrop-filter-nonemd:backdrop-blur-none md:border-none md:backdrop-filter-none">
+        <ul class="flex flex-col gap-5 items-center p-5 text-white md:flex-row">
+            <MenuItem url="/">Inicio</MenuItem>
+            <MenuItem url="/about">Sobre nosotros</MenuItem>
+            <MenuItem url="/franchises">Franquicias</MenuItem>
+        </ul>
+    </div>
+
+    <!-- Toggle menu button -->
+    <MenuButton id="toggle-menu"/>
+</nav>
+
+<script>
+    addEvents()
+
+    function addEvents () {
+        document.getElementById('toggle-menu').addEventListener('click', toggleMenu)
+    }
+
+    function toggleMenu () {
+        const menu = document.getElementById('menu')
+
+        menu.classList.toggle('open')
+    }
+</script>
+
+<style>
+    @media screen and (max-width: 768px) {
+        #menu {
+            height: 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+        }
+    
+        #menu.open {
+            transform: translateY(0);
+            height: 50vh;
+        }
+    }
+
+</style>

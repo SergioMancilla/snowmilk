@@ -1,29 +1,12 @@
 ---
-import { getLangFromUrl, useTranslations } from '@i18n/utils';
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
+import Menu from './Menu.astro'
 ---
-<header class="static bg-pink-200 h-16 flex justify-start md:justify-center gap-10 items-center">
-    <aside class="">
-        <h1 class="font-madimi text-2xl px-4">
-            <a href="/">Snowmilk</a>
+<header class="fixed bg-primary-350 h-16 w-full flex justify-start gap-10 items-center">
+    <aside class="max-w-5xl flex items-center justify-between w-full px-6 mx-auto">
+        <h1 class="font-madimi text-3xl px-4">
+            <a href="/" class="text-white">Snowmilk</a>
         </h1>
+        <Menu></Menu>
     </aside>
-    <nav class="">
-        <div class="absolute top-0 left-0 overflow-hidden w-full bg-pink-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-60 border border-gray-100 md:relative md:bg-inherit md:rounded-none md:backdrop-filter-nonemd:backdrop-blur-none md:border-none">
-            <ul class="flex flex-col md:flex-row gap-3 items-center p-5 text-white">
-                <li class="bg-pink-800 px-4 rounded-md">
-                    <a href="">Inicio</a>
-                </li>
-                <li class="">
-                    <a href="">Sobre nosotros</a>
-                </li>
-                <li class="">
-                    <a href="">Franquicias</a>
-                </li>
-            </ul>
-        </div>
-        <div class="md:hidden">
-            <i class="ti ti-home"></i>
-            <button></button>
-        </div>
-    </nav>
 </header>

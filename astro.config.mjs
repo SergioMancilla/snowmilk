@@ -1,5 +1,8 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
+
+import { siteURL } from './conf'
+
 export const additionalConfig = {
   defaultLocale: 'es'
 };
@@ -7,6 +10,7 @@ export const additionalConfig = {
 
 // https://astro.build/config
 export default defineConfig({
+  site: siteURL,
   i18n: {
     defaultLocale: additionalConfig.defaultLocale,
     locales: ['es', 'en'],
