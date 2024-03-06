@@ -20,6 +20,9 @@ export default {
 				},
 				'secondary': 'rgb(64, 194, 208)',
 				'secondarydark': 'rgb(19, 124, 135)'
+			},
+			spacing: {
+				'header': '4rem'
 			}
 		},
 	},
