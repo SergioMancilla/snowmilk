@@ -1,21 +1,45 @@
 ---
 import Base from '@layouts/Base.astro'
 import ShortcutCardList from '@components/UI/ShortcutCardList.astro'
+import MainCarousel from '@components/MainCarousel.astro'
 
 const seoTags = {
 	description: 'Somos Snowmilk Teas, conócenos y disfruta de la mejor experiencia en comida y bubble teas al estilo japonés',
 	keywords: 'snowmilk, nosotros, comida, bebidas, presentación'
 }
+
+const carouselImgs = [
+	{
+		url: '/assets/img/carousel/yellow.png',
+		alt: 'Image #1'
+	},
+	{
+		url: '/assets/img/carousel/blue.png',
+		alt: 'Image #2'
+	},
+	{
+		url: '/assets/img/carousel/green.png',
+		alt: 'Image #3'
+	},
+	{
+		url: '/assets/img/carousel/purple.png',
+		alt: 'Image #3'
+	},
+	{
+		url: '/assets/img/carousel/brown.png',
+		alt: 'Image #4'
+	}
+]
 ---
 
 <Base title="Snowmilk" seoTags={seoTags}>
-	<main class="bg-primary-200">
-		<div class="block bg-fixed w-full max-h-[40vh] aspect-[4/3] bg-red-200 text-black pt-header">
-
+	<main class="bg-white pt-header">
+		<div class="relative">
+			<MainCarousel className='' imgs={carouselImgs}></MainCarousel>
 		</div>
 
-		<ShortcutCardList></ShortcutCardList>
-		<!-- <div class="bg-white p-5">
+		<ShortcutCardList className=''></ShortcutCardList>
+		<div class="">
 			<p class="">
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum neque officiis placeat in inventore distinctio eaque magnam excepturi voluptas exercitationem architecto, eum, consectetur saepe asperiores ullam quibusdam dignissimos unde possimus? Similique amet voluptate sit soluta enim? Nulla suscipit, totam amet reprehenderit animi quisquam assumenda excepturi nostrum nisi libero. Officiis facilis laborum aliquam at illo accusantium consequuntur cupiditate assumenda laboriosam optio dignissimos eveniet voluptatem sequi voluptates fugiat, vero harum? Quo, et ut in, eos enim neque sapiente pariatur fuga praesentium dolorem blanditiis dolorum quisquam deleniti mollitia quia! Quidem excepturi fugit sequi accusantium earum aliquam quis saepe? Eligendi, adipisci maxime? Sequi, perferendis?
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum neque officiis placeat in inventore distinctio eaque magnam excepturi voluptas exercitationem architecto, eum, consectetur saepe asperiores ullam quibusdam dignissimos unde possimus? Similique amet voluptate sit soluta enim? Nulla suscipit, totam amet reprehenderit animi quisquam assumenda excepturi nostrum nisi libero. Officiis facilis laborum aliquam at illo accusantium consequuntur cupiditate assumenda laboriosam optio dignissimos eveniet voluptatem sequi voluptates fugiat, vero harum? Quo, et ut in, eos enim neque sapiente pariatur fuga praesentium dolorem blanditiis dolorum quisquam deleniti mollitia quia! Quidem excepturi fugit sequi accusantium earum aliquam quis saepe? Eligendi, adipisci maxime? Sequi, perferendis?
@@ -23,6 +47,6 @@ const seoTags = {
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum neque officiis placeat in inventore distinctio eaque magnam excepturi voluptas exercitationem architecto, eum, consectetur saepe asperiores ullam quibusdam dignissimos unde possimus? Similique amet voluptate sit soluta enim? Nulla suscipit, totam amet reprehenderit animi quisquam assumenda excepturi nostrum nisi libero. Officiis facilis laborum aliquam at illo accusantium consequuntur cupiditate assumenda laboriosam optio dignissimos eveniet voluptatem sequi voluptates fugiat, vero harum? Quo, et ut in, eos enim neque sapiente pariatur fuga praesentium dolorem blanditiis dolorum quisquam deleniti mollitia quia! Quidem excepturi fugit sequi accusantium earum aliquam quis saepe? Eligendi, adipisci maxime? Sequi, perferendis?
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum neque officiis placeat in inventore distinctio eaque magnam excepturi voluptas exercitationem architecto, eum, consectetur saepe asperiores ullam quibusdam dignissimos unde possimus? Similique amet voluptate sit soluta enim? Nulla suscipit, totam amet reprehenderit animi quisquam assumenda excepturi nostrum nisi libero. Officiis facilis laborum aliquam at illo accusantium consequuntur cupiditate assumenda laboriosam optio dignissimos eveniet voluptatem sequi voluptates fugiat, vero harum? Quo, et ut in, eos enim neque sapiente pariatur fuga praesentium dolorem blanditiis dolorum quisquam deleniti mollitia quia! Quidem excepturi fugit sequi accusantium earum aliquam quis saepe? Eligendi, adipisci maxime? Sequi, perferendis?
 			</p>
-		</div> -->
+		</div>
 	</main>
 </Base>

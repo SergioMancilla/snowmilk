@@ -1,0 +1,78 @@
+---
+import SnowSVG from '@components/svg/SnowSVG.astro'
+import ArrowSVG from '@components/svg/ArrowSVG.astro'
+
+interface Img {
+    url: string,
+    alt: string
+}
+
+interface Props {
+    imgs: Img[],
+    className?: string
+}
+
+const { imgs, className } = Astro.props;
+---
+<!--  -->
+<div class=`flex justify-center shadow-[inset_0px_0px_21px_11px_#1a202c] hover:shadow-[inset_0px_0px_0px_0px_#fff] transition-shadow duration-300 lg:hover:cursor-pointer ${className || ''}`>
+    <!-- Buttons for previous and next images -->
+    <div>
+        <button id="prev-img" class="absolute z-10 top-1/2 left-2 -translate-y-full">
+            <ArrowSVG direction='left' className="w-7 h-7 text-primary-200 bg-gray-800 opacity-60 rounded-xl hover:opacity-100 transition-opacity duration-200"/>
+        </button>
+        <button id="next-img" class="absolute z-10 top-1/2 right-2 -translate-y-full">
+            <ArrowSVG direction='right' className="w-7 h-7 text-primary-200 bg-gray-800 opacity-70 rounded-xl hover:opacity-100 transition-opacity duration-200"/>
+        </button>
+    </div>
+    
+    <!-- Carousel links shaped snowflakes -->
+    <div class="absolute bottom-5 z-10 flex gap-2">
+        {imgs.map((_, index) => {
+            return (
+                <a href={`#slide-${index}`}>
+                    <SnowSVG className={`w-6 h-6 ${false? 'stroke-primary-500' : 'stroke-white'}`}/>
+                </a>
+            )
+        })}
+    </div>
+
+    <!-- Slider carousel -->
+    <div class="slider-container overflow-x-scroll scroll-smooth snap-mandatory snap-x">
+        <div id="slider" class="slider w-full flex relative bg-fixed max-h-[432px] aspect-[16/9] md:max-h-[60vh] transition-transform delay-200 duration-300">
+            {imgs.map((img, index) => {
+                return (
+                    <img id={`slide-${index}`} src={ img.url } alt={ img.alt } class="min-w-full object-cover snap-center"/>
+                )
+            })}
+        </div>
+    </div>
+</div>
+
+<style>
+    .slider-container::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+
+<script>
+    document.getElementById('prev-img').addEventListener('click', goPrevImg)
+    document.getElementById('next-img').addEventListener('click', goNextImg)
+    const sliderContainer = document.getElementById('slider-container')
+    const slider = document.getElementById('slider')
+
+    function goPrevImg () {
+        // slider.classList.add('translate-x-0')
+        console.log(getTransformValue())
+    }
+
+    function goNextImg () {
+        slider.classList.add('-translate-x-full')
+    }
+
+    function getTransformValue () {
+        const slider = document.getElementById('slider')
+        return slider.offsetLeft
+    }
+
+</script>
