@@ -16,7 +16,7 @@ interface Props {
 const { imgs, className } = Astro.props;
 ---
 
-<div id="default-carousel" class="sticky top-header-mobile w-full md:top-header" data-carousel="slide">
+<div id="default-carousel" class=`sticky w-full ${className || ''}` data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative overflow-hidden aspect-video md:aspect-[10/3.5] top-0">
         {imgs.map((img) => {
