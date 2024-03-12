@@ -8,7 +8,7 @@ interface Props {
 const { className, fillColor, backColor } = Astro.props
 ---
 
-<svg class=`icon rounded icon-tabler icon-tabler-snowflake ${className || ''}` width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke={fillColor} fill='none' stroke-linecap="round" stroke-linejoin="round">
+<svg class=`icon rounded icon-tabler icon-tabler-snowflake ${className || ''}` viewBox="0 0 24 24" stroke-width="1.5" stroke={fillColor} fill='none' stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill={backColor || 'none'}/>
     <path d="M10 4l2 1l2 -1" />
     <path d="M12 2v6.5l3 1.72" />
