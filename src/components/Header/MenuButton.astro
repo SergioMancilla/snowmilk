@@ -4,7 +4,7 @@ const { id } = Astro.props as { id: string }
 
 <div id={id} class="absolute right-4 md:hidden hover:cursor-pointer border-4 border-pink-200 p-2 shadow-lg rounded-lg">
     <div role="button" title="Menu de opciones" class="container">
-        <input title="menu-checker" type="checkbox" class="checker" />
+        <input id="checker-button" title="menu-checker" type="checkbox" class="checker" />
         <div class="line edge"></div>
         <div class="line center"></div>
         <div class="line center"></div>
@@ -28,6 +28,7 @@ const { id } = Astro.props as { id: string }
     left: -60%;
     width: 220%;
     height: 230%;
+    opacity: 0;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
