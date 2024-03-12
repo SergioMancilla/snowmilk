@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+import animations from '@midudev/tailwind-animations'
+
 export default {
 	content: [
 		'./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
@@ -25,11 +28,13 @@ export default {
 				'secondarydark': 'rgb(19, 124, 135)'
 			},
 			spacing: {
-				'header': '4rem'
+				'header': '5rem',
+				'header-mobile': '4rem'
 			}
 		},
 	},
 	plugins: [
-		require('flowbite/plugin')
+		require('flowbite/plugin'),
+		animations
 	],
 }

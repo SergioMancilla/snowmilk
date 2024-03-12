@@ -16,12 +16,12 @@ interface Props {
 const { imgs, className } = Astro.props;
 ---
 
-<div id="default-carousel" class="relative w-full" data-carousel="static">
+<div id="default-carousel" class="sticky top-header-mobile w-full md:top-header" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden md:h-96">
-        {imgs.map((img, index) => {
+    <div class="relative overflow-hidden aspect-video md:aspect-[10/3.5] top-0">
+        {imgs.map((img) => {
             return (
-                <a href={ img.href || '#' } class=`hidden duration-300 ease-in-out` data-carousel-item>
+                <a href={ img.href || '#' } class='hidden duration-1000 ease-in-out' data-carousel-item>
                     <img src={ img.url } class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={ img.alt } />
                 </a>
             )
