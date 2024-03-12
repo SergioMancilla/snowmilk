@@ -14,101 +14,59 @@ interface Props {
 }
 
 const { imgs, className } = Astro.props;
-
-const pruebaaa = 'hjbhub'
 ---
-<!--  -->
-<div class=`flex justify-center shadow-[inset_0px_0px_21px_11px_#1a202c] hover:shadow-[inset_0px_0px_0px_0px_#fff] transition-shadow duration-300 lg:hover:cursor-pointer ${className || ''}`>
-    <!-- Buttons for previous and next images -->
-    <div>
-        <button id="prev-img" class="absolute z-10 top-1/2 left-2 -translate-y-full">
-            <ArrowSVG direction='left' className="w-7 h-7 text-primary-200 bg-gray-800 opacity-60 rounded-xl hover:opacity-100 transition-opacity duration-200"/>
-        </button>
-        <button id="next-img" class="absolute z-10 top-1/2 right-2 -translate-y-full">
-            <ArrowSVG direction='right' className="w-7 h-7 text-primary-200 bg-gray-800 opacity-70 rounded-xl hover:opacity-100 transition-opacity duration-200"/>
-        </button>
-    </div>
-    
-    <!-- Carousel links shaped snowflakes -->
-    <div class="absolute bottom-5 z-10 flex gap-2">
-        {imgs.map((_, index) => {
-            return (
-                <a href={`#slide-${index}`} class="slide-link text-blue-400">
-                    <SnowSVG className={`w-6 h-6 ${false? 'stroke-primary-500' : 'stroke-white'}`}/>
-                </a>
-            )
-        })}
-    </div>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
-    <!-- Slider carousel -->
-    <div id="slider-container" class="slider-container overflow-x-scroll scroll-smooth snap-mandatory snap-x">
-        <div id="slider" class="slider w-full flex relative bg-fixed max-h-[432px] aspect-[16/9] md:max-h-[60vh] transition-transform duration-500">
-            {imgs.map((img, index) => {
-                return (
-                    <a href={ img.href || '#' } class="slide-element min-w-full sticky left-0 object-cover snap-center">
-                        <img id={`slide-${index}`} src={ img.url } alt={ img.alt }/>
-                    </a>
-                )
-            })}
+<div id="default-carousel" class="relative w-full" data-carousel="static">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+         <!-- Item 1 -->
+        <div class="duration-700 ease-in-out" data-carousel-item>
+            <img src="/assets/img/carousel/yellow.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/assets/img/carousel/blue.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/assets/img/carousel/green.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 4 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/assets/img/carousel/purple.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <!-- Item 5 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/assets/img/carousel/brown.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
     </div>
+    <!-- Slider indicators -->
+    <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+    </div>
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
 </div>
 
-<style>
-    .slider-container::-webkit-scrollbar {
-        display: none;
-    }
-</style>
-
-<script>
-    type Direction = 'right' | 'left'
-
-    let slideCounter = 0;
-    const sliderElements = document.querySelectorAll('.slide-element')
-    const sliderLinks = document.querySelectorAll('.slide-link')
-
-    document.getElementById('prev-img').addEventListener('click', goPrevImg)
-    document.getElementById('next-img').addEventListener('click', goNextImg)
-
-    const sliderContainer = document.getElementById('slider-container')
-    const slider = document.getElementById('slider')
-
-    function goPrevImg () {
-        moveSlider('left')
-    }
-    
-    function goNextImg () {
-        moveSlider('right')
-    }
-
-    function moveSlider (direction: Direction) {
-        const currentXPosition = getTransformValue()
-        if (direction == 'left') {
-            slider.style.transform = `translateX(calc(${currentXPosition}px + 100%))`
-            slideCounter--
-        }
-        else {
-            slider.style.transform = `translateX(calc(${currentXPosition}px - 100%))`
-            slideCounter++
-        }
-        setCurrentSlideLink(slideCounter)
-    }
-
-    function getTransformValue () {
-        const slider = document.getElementById('slider')
-        return slider.getBoundingClientRect().x
-    }
-
-    function reorderSlides () {
-        // takes the first or last element and reorder it for making an infinity slider
-        const isLastElement = slideCounter === sliderElements.length - 1
-        if (isLastElement) {
-            sliderContainer.classList.add('flex-col-reverse')
-        }
-    }
-
-    function setCurrentSlideLink (counter) {
-        sliderLinks[counter].classList.add('bg-black')
-    }
-
-</script>
+<!-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> -->
