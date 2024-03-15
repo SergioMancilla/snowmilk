@@ -1,0 +1,13 @@
+---
+interface Props {
+    textAlign: 'right' | 'left'
+}
+
+const { textAlign } = Astro.props
+---
+
+<article class=`flex justify-${ (textAlign === 'left')? 'start' : 'end' }`>
+    <div class=`flex justify-${ (textAlign === 'left')? 'start' : 'end' } items-center min-h-[200px] px-4 py-4 w-3/4 bg-white rounded-lg shadow-[-4px_-4px_0px_3px_#7928A7,0px_0px_13px_2px_#9661C3]`>
+        <slot />
+    </div>
+</article>

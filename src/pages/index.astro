@@ -1,6 +1,7 @@
 ---
 import Base from '@layouts/Base.astro'
 import ShortcutCardList from '@components/UI/ShortcutCardList.astro'
+import ContentCard from '@components/UI/ContentCard.astro'
 import MainCarousel from '@components/MainCarousel.astro'
 
 const seoTags = {
@@ -43,15 +44,24 @@ const carouselImgs = [
 		<div class="relative bg-white z-30 pt-12">
 			<ShortcutCardList className=''></ShortcutCardList>
 			
-			<section class="px-8">
-				<p class="">
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum neque officiis placeat in inventore distinctio eaque magnam excepturi voluptas exercitationem architecto, eum, consectetur saepe asperiores ullam quibusdam dignissimos unde possimus? Similique amet voluptate sit soluta enim? Nulla suscipit, totam amet reprehenderit animi quisquam assumenda excepturi nostrum nisi libero. Officiis facilis laborum aliquam at illo accusantium consequuntur cupiditate assumenda laboriosam optio dignissimos eveniet voluptatem sequi voluptates fugiat, vero harum? Quo, et ut in, eos enim neque sapiente pariatur fuga praesentium dolorem blanditiis dolorum quisquam deleniti mollitia quia! Quidem excepturi fugit sequi accusantium earum aliquam quis saepe? Eligendi, adipisci maxime? Sequi, perferendis?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum neque officiis placeat in inventore distinctio eaque magnam excepturi voluptas exercitationem architecto, eum, consectetur saepe asperiores ullam quibusdam dignissimos unde possimus? Similique amet voluptate sit soluta enim? Nulla suscipit, totam amet reprehenderit animi quisquam assumenda excepturi nostrum nisi libero. Officiis facilis laborum aliquam at illo accusantium consequuntur cupiditate assumenda laboriosam optio dignissimos eveniet voluptatem sequi voluptates fugiat, vero harum? Quo, et ut in, eos enim neque sapiente pariatur fuga praesentium dolorem blanditiis dolorum quisquam deleniti mollitia quia! Quidem excepturi fugit sequi accusantium earum aliquam quis saepe? Eligendi, adipisci maxime? Sequi, perferendis?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum neque officiis placeat in inventore distinctio eaque magnam excepturi voluptas exercitationem architecto, eum, consectetur saepe asperiores ullam quibusdam dignissimos unde possimus? Similique amet voluptate sit soluta enim? Nulla suscipit, totam amet reprehenderit animi quisquam assumenda excepturi nostrum nisi libero. Officiis facilis laborum aliquam at illo accusantium consequuntur cupiditate assumenda laboriosam optio dignissimos eveniet voluptatem sequi voluptates fugiat, vero harum? Quo, et ut in, eos enim neque sapiente pariatur fuga praesentium dolorem blanditiis dolorum quisquam deleniti mollitia quia! Quidem excepturi fugit sequi accusantium earum aliquam quis saepe? Eligendi, adipisci maxime? Sequi, perferendis?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum neque officiis placeat in inventore distinctio eaque magnam excepturi voluptas exercitationem architecto, eum, consectetur saepe asperiores ullam quibusdam dignissimos unde possimus? Similique amet voluptate sit soluta enim? Nulla suscipit, totam amet reprehenderit animi quisquam assumenda excepturi nostrum nisi libero. Officiis facilis laborum aliquam at illo accusantium consequuntur cupiditate assumenda laboriosam optio dignissimos eveniet voluptatem sequi voluptates fugiat, vero harum? Quo, et ut in, eos enim neque sapiente pariatur fuga praesentium dolorem blanditiis dolorum quisquam deleniti mollitia quia! Quidem excepturi fugit sequi accusantium earum aliquam quis saepe? Eligendi, adipisci maxime? Sequi, perferendis?
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum neque officiis placeat in inventore distinctio eaque magnam excepturi voluptas exercitationem architecto, eum, consectetur saepe asperiores ullam quibusdam dignissimos unde possimus? Similique amet voluptate sit soluta enim? Nulla suscipit, totam amet reprehenderit animi quisquam assumenda excepturi nostrum nisi libero. Officiis facilis laborum aliquam at illo accusantium consequuntur cupiditate assumenda laboriosam optio dignissimos eveniet voluptatem sequi voluptates fugiat, vero harum? Quo, et ut in, eos enim neque sapiente pariatur fuga praesentium dolorem blanditiis dolorum quisquam deleniti mollitia quia! Quidem excepturi fugit sequi accusantium earum aliquam quis saepe? Eligendi, adipisci maxime? Sequi, perferendis?
-				</p>
+			<section class="about w-full px-8 my-8 flex flex-col gap-5 bg-purple-300">
+				<ContentCard textAlign='left'>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius laborum rerum repellat at optio magni
+					</p>
+				</ContentCard>
+				<ContentCard textAlign='right'>
+					<p class="text-end">
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius laborum rerum repellat at optio magni
+					</p>
+				</ContentCard>
+				<ContentCard textAlign='left'>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius laborum rerum repellat at optio magni
+					</p>
+				</ContentCard>
 			</section>
+			
 		</div>
 	</main>
 	<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
