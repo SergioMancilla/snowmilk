@@ -18,6 +18,10 @@ a {
     text-decoration: none;
 }
 
+li {
+    list-style-type: none;
+}
+
 .font-madimi {
     font-family: 'Madimi';
 }

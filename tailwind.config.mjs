@@ -41,7 +41,8 @@ export default {
 			},
 			spacing: {
 				'header': '5rem',
-				'header-mobile': '4rem'
+				'header-mobile': '4rem',
+				'footer': '8rem'
 			}
 		},
 	},

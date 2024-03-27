@@ -1,0 +1,16 @@
+---
+interface Props {
+    url: string
+}
+
+const { url } = Astro.props
+const { pathname } = Astro.url
+
+const isSelected = () => url === pathname
+---
+
+<li class:list={[{ 'hidden': isSelected() }]}> 
+    <a href={url}>
+        <slot />
+    </a>
+</li>

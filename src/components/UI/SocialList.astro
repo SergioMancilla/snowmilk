@@ -1,0 +1,30 @@
+---
+import SocialItem from './SocialItem.astro'
+import { socialNetworks } from '@utils/lists/socialNetworks'
+import FacebokSVG from '@components/svg/FacebokSVG.astro'
+import InstagramSVG from '@components/svg/InstagramSVG.astro'
+import TikTokSVG from '@components/svg/TikTokSVG.astro'
+import WhatsAppSVG from '@components/svg/WhatsAppSVG.astro'
+
+interface Props {
+    className?: string,
+    classIcons?: string
+}
+
+const { className, classIcons } = Astro.props
+---
+
+<ul class=`${className}`>
+    <SocialItem url={ socialNetworks.facebook.url }>
+        <FacebokSVG className=`${classIcons || ''}`/>
+    </SocialItem>
+    <SocialItem url={ socialNetworks.instagram.url }>
+        <InstagramSVG className=`${classIcons || ''}`/>
+    </SocialItem>
+    <SocialItem url={ socialNetworks.tiktok.url }>
+        <TikTokSVG className=`${classIcons || ''}`/>
+    </SocialItem>
+    <SocialItem url={ socialNetworks.whatsapp.url }>
+        <WhatsAppSVG className=`${classIcons || ''}`/>
+    </SocialItem>
+</ul>

@@ -9,7 +9,7 @@ const { pathname } = Astro.url;
 const isSelected = () => url === pathname
 ---
 
-<li class:list={["px-4 py-1 relative flex flex-col card-style-boxshadows group overflow-hidden text-white rotate-1 border-2 border-white rounded-md shadow-[5px_5px_0px_0px_#ec48a1] hover:shadow-none transition-all hover:rotate-0 hover:translate-x-1 hover:translate-y-1 duration-200", { 'bg-primary-600': isSelected() }]}>
+<li class:list={["px-4 py-1 relative flex flex-col card-style-boxshadows group overflow-hidden text-white rotate-1 border-2 border-white rounded-md shadow-[5px_5px_0px_0px_#ec48a1] hover:shadow-none transition-all hover:rotate-0 hover:translate-x-1 hover:translate-y-1 duration-200 text-nowrap", { 'bg-primary-600': isSelected() }]}>
     <a href={url} class="flex justify-center items-center h-full">
         <slot />
     </a>
