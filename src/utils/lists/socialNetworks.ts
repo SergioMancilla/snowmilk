@@ -1,25 +1,30 @@
+type socialNetworkTag = 'facebook' | 'instagram' | 'tiktok' | 'whatsapp'
+
 interface socialNetworks {
-    [key: string]: {
-        name: string,
-        url: string
-    }
+    name: string,
+    url: string,
+    tag: socialNetworkTag
 }
 
-export const socialNetworks: socialNetworks = {
-    facebook: {
+export const socialNetworks: socialNetworks[] = [
+    {
         name: 'Facebook',
-        url: 'https://www.facebook.com/SnowmilkTeas/'
+        url: 'https://www.facebook.com/SnowmilkTeas/',
+        tag: 'facebook'
     },
-    instagram: {
+    {
         name: 'Instagram',
-        url: 'https://www.instagram.com/snowmilk_teas/?hl=es'
+        url: 'https://www.instagram.com/snowmilk_teas/?hl=es',
+        tag: 'instagram'
     },
-    whatsapp: {
+    {
         name: 'WhatsApp',
-        url: `https://api.whatsapp.com/send?phone=${import.meta.env.PUBLIC_WHATSAPP_PHONE || ''}&text=%C2%A1Bienvenido!%20Cont%C3%A1ctanos`
+        url: `https://api.whatsapp.com/send?phone=${import.meta.env.PUBLIC_WHATSAPP_PHONE || ''}&text=%C2%A1Bienvenido!%20Cont%C3%A1ctanos`,
+        tag: 'whatsapp'
     },
-    tiktok: {
+    {
         name: 'TikTok',
-        url: 'https://www.tiktok.com/@snowmilk_teas'
+        url: 'https://www.tiktok.com/@snowmilk_teas',
+        tag: 'tiktok'
     }
-}
+]

@@ -1,10 +1,7 @@
 ---
 import SocialItem from './SocialItem.astro'
+import SocialSVG from '@components/svg/SocialSVG.astro'
 import { socialNetworks } from '@utils/lists/socialNetworks'
-import FacebokSVG from '@components/svg/FacebokSVG.astro'
-import InstagramSVG from '@components/svg/InstagramSVG.astro'
-import TikTokSVG from '@components/svg/TikTokSVG.astro'
-import WhatsAppSVG from '@components/svg/WhatsAppSVG.astro'
 
 interface Props {
     className?: string,
@@ -15,16 +12,13 @@ const { className, classIcons } = Astro.props
 ---
 
 <ul class=`${className}`>
-    <SocialItem url={ socialNetworks.facebook.url }>
-        <FacebokSVG className=`${classIcons || ''}`/>
-    </SocialItem>
-    <SocialItem url={ socialNetworks.instagram.url }>
-        <InstagramSVG className=`${classIcons || ''}`/>
-    </SocialItem>
-    <SocialItem url={ socialNetworks.tiktok.url }>
-        <TikTokSVG className=`${classIcons || ''}`/>
-    </SocialItem>
-    <SocialItem url={ socialNetworks.whatsapp.url }>
-        <WhatsAppSVG className=`${classIcons || ''}`/>
-    </SocialItem>
+    {
+        socialNetworks.map(socialNetwork => {
+            return (
+                <SocialItem url={ socialNetwork.url }>
+                    <SocialSVG className={`${classIcons || ''}`} tag={socialNetwork.tag} />
+                </SocialItem>
+            )
+        })
+    }
 </ul>
