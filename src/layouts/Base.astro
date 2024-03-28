@@ -62,7 +62,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site)
 
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="flex flex-col justify-between h-full">
 		<Header></Header>
 		<div class="pt-header-mobile md:pt-header">
 			<slot />

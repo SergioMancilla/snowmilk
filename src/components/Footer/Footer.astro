@@ -4,7 +4,7 @@ import SocialList from '@components/UI/SocialList.astro'
 import { sitePaths } from '@utils/lists/sitePaths';
 
 ---
-<footer class="flex flex-col justify-center items-center bg-purple-500 relative h-footer px-3 py-2">
+<footer class="flex flex-col justify-center items-center bg-purple-500 relative h-footer px-3 py-8">
     <section>
         <h2 class="font-[madimi] text-primary-200 text-xl">
             Snowmilk Teas
@@ -13,7 +13,7 @@ import { sitePaths } from '@utils/lists/sitePaths';
     <main>
         <!-- Navigation menu -->
         <nav>
-            <ul class="flex gap-5 text-primary-100">
+            <ul class="flex gap-5 text-primary-100 md:gap-20">
                 {
                     sitePaths.map(sitePath => {
                         return (
@@ -28,7 +28,7 @@ import { sitePaths } from '@utils/lists/sitePaths';
         </nav>
         <!-- Social networks -->
         <nav class="mt-3">
-            <SocialList className='flex justify-center gap-2' classIcons="fill-primary-100 h-6 w-6">
+            <SocialList className='flex justify-center gap-2 md:gap-5' classIcons="fill-primary-100 h-6 w-6 hover:scale-105">
         </nav>
     </main>
 </footer>

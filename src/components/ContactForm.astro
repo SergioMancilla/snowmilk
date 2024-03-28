@@ -1,0 +1,19 @@
+---
+interface Props {
+    className?: string
+}
+
+const { className } = Astro.props
+---
+
+<div class={`${className} w-full flex justify-center mt-8`}>
+    <!-- Container for showing shadow effect -->
+    <div class="relative w-[90%] h-[60px] max-w-screen-sm border-solid border-2 border-black">
+        <form id="contact-form" action="" class="absolute flex flex-col justify-center items-center w-full h-full bottom-2 right-2 border-solid border-2 border-black bg-purple-300">
+            <h1 class="text-white">
+                hola
+            </h1>
+        </form>
+    </div>
+</div>
+

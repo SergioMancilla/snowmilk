@@ -3,38 +3,12 @@ import Base from '@layouts/Base.astro'
 import ShortcutCardList from '@components/UI/ShortcutCardList.astro'
 import ContentCard from '@components/UI/ContentCard.astro'
 import MainCarousel from '@components/MainCarousel.astro'
+import { carouselImgs } from '@utils/lists/carousel'
 
 const seoTags = {
 	description: 'Somos Snowmilk Teas, conócenos y disfruta de la mejor experiencia en comida y bubble teas al estilo japonés',
 	keywords: 'snowmilk, nosotros, comida, bebidas, presentación'
 }
-
-const carouselImgs = [
-	{
-		url: '/assets/img/carousel/yellow.png',
-		alt: 'Image #1'
-	},
-	{
-		url: '/assets/img/carousel/blue.png',
-		alt: 'Image #2'
-	},
-	{
-		url: '/assets/img/carousel/green.png',
-		alt: 'Image #3'
-	},
-	{
-		url: '/assets/img/carousel/purple.png',
-		alt: 'Image #3'
-	},
-	{
-		url: '/assets/img/carousel/brown.png',
-		alt: 'Image #4'
-	},
-	{
-		url: '/assets/img/carousel/snowmilk.jpg',
-		alt: 'Image #5'
-	}
-]
 ---
 
 <Base title="Snowmilk" seoTags={seoTags}>
@@ -44,22 +18,26 @@ const carouselImgs = [
 		<div class="relative bg-white z-30 pt-12">
 			<ShortcutCardList className=''></ShortcutCardList>
 			
-			<section class="about w-full px-8 my-8 flex flex-col gap-5 bg-purple-300">
-				<ContentCard textAlign='left'>
+			<section class="about w-full px-8 mt-8 flex flex-col gap-5 bg-purple-300">
+				<ContentCard textAlign='left' className='transition-transform duration-200 hover:rotate-2 md:hover:rotate-1'>
 					<p>
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius laborum rerum repellat at optio magni
 					</p>
 				</ContentCard>
-				<ContentCard textAlign='right'>
+				<ContentCard textAlign='right' className='transition-transform duration-200 hover:-rotate-2 md:hover:-rotate-1'>
 					<p class="text-end">
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius laborum rerum repellat at optio magni
 					</p>
 				</ContentCard>
-				<ContentCard textAlign='left'>
+				<ContentCard textAlign='left' className='transition-transform duration-200 hover:rotate-2 md:hover:rotate-2'>
 					<p>
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius laborum rerum repellat at optio magni
 					</p>
 				</ContentCard>
+			</section>
+
+			<section class="flex justify-center items-center bg-purple-100 p-5 aspect-video md:aspect-[10/3.5]">
+				Más contenido aquí
 			</section>
 			
 		</div>

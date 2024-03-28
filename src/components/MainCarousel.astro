@@ -32,7 +32,7 @@ const { imgs, className } = Astro.props;
     <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
         {imgs.map((_, index) => {
             return (
-                <button type="button" class="w-5 h-5 [&>svg]:aria-[current=true]:opacity-100 hover:bg-opacity-0 hover:[&>svg]:opacity-70" style="background-color:transparent" aria-current={ (index === 0)? 'true' : 'false' } aria-label=`Slide ${index + 1}` data-carousel-slide-to={ index }>
+                <button type="button" class="w-5 h-5 [&>svg]:aria-[current=true]:opacity-100 hover:bg-opacity-0 hover:[&>svg]:opacity-70" style="background-color:transparent" aria-current={ (index === 0)? 'true' : 'false' } aria-label={`Slide ${index + 1}`} data-carousel-slide-to={ index }>
                     <SnowSVG className='stroke-white bg-transparent-500 opacity-50'></SnowSVG>
                 </button>
             )

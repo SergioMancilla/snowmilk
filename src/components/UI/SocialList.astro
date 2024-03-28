@@ -11,7 +11,7 @@ interface Props {
 const { className, classIcons } = Astro.props
 ---
 
-<ul class=`${className}`>
+<ul class={`${className}`}>
     {
         socialNetworks.map(socialNetwork => {
             return (

@@ -8,7 +8,7 @@ const { name, url } = Astro.props
 ---
 
 <li>
-    <a href={url}>
+    <a href={url} target="_blank">
         {name?? name}
         <slot />
     </a>
