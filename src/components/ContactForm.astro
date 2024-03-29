@@ -8,12 +8,31 @@ const { className } = Astro.props
 
 <div class={`${className} w-full flex justify-center mt-8`}>
     <!-- Container for showing shadow effect -->
-    <div class="relative w-[90%] h-[60px] max-w-screen-sm border-solid border-2 border-black">
-        <form id="contact-form" action="" class="absolute flex flex-col justify-center items-center w-full h-full bottom-2 right-2 border-solid border-2 border-black bg-purple-300">
-            <h1 class="text-white">
-                hola
+    <div class="relative w-[90%] max-w-screen-sm border-solid border-2 border-black rounded-md">
+        <form id="contact-form" action="" class="relative flex flex-col justify-center items-center w-full h-full py-10 bottom-2 right-2 border-solid border-2 border-black bg-purple-300 rounded-md">
+            <h1 class="text-white text-xl font-medium mb-6">
+                Contáctanos
             </h1>
+            <!-- inputs container -->
+            <section class="flex flex-col gap-2 w-[90%] mb-6">
+                <input type="text" id="name-control" name="name" id="" class="form-control required text-center rounded-md" placeholder="Tu nombre">
+                <input type="email" id="email-control" name="email" id="" class="form-control required text-center rounded-md" placeholder="Correo electrónico">
+                <input type="text" id="phone-control" name="phone" id="" class="form-control text-center rounded-md" placeholder="Teléfono">
+                <input type="text" id="message-control" name="message" id="" class="form-control required text-center h-28 rounded-md" placeholder="¿Qué nos quieres contar?">
+            </section>
+            <!-- form actions -->
+            <section>
+                <button id='submit-button' type="submit" class="text-white bg-purple-500 w-36 h-10 rounded-md shadow-[5px_5px_0px_0px_#fce7f2] hover:shadow-none hover:bg-gray-800 transition-all hover:translate-x-1 hover:translate-y-1duration-300">
+                    Enviar
+                </button>
+            </section>
         </form>
     </div>
 </div>
+
+<script>
+    import { handleSubmitForm } from "@utils/contactForm";
+    handleSubmitForm()
+</script>
+
 
