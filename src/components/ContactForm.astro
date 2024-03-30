@@ -6,7 +6,7 @@ interface Props {
 const { className } = Astro.props
 ---
 
-<div class={`${className} w-full flex justify-center mt-8`}>
+<div class={`${className || ''} w-full flex justify-center my-8 mb`}>
     <!-- Container for showing shadow effect -->
     <div class="relative w-[90%] max-w-screen-sm border-solid border-2 border-black rounded-md">
         <form id="contact-form" action="" class="relative flex flex-col justify-center items-center w-full h-full py-10 bottom-2 right-2 border-solid border-2 border-black bg-purple-300 rounded-md">
@@ -15,10 +15,22 @@ const { className } = Astro.props
             </h1>
             <!-- inputs container -->
             <section class="flex flex-col gap-2 w-[90%] mb-6">
-                <input type="text" id="name-control" name="name" id="" class="form-control required text-center rounded-md" placeholder="Tu nombre">
-                <input type="email" id="email-control" name="email" id="" class="form-control required text-center rounded-md" placeholder="Correo electrónico">
-                <input type="text" id="phone-control" name="phone" id="" class="form-control text-center rounded-md" placeholder="Teléfono">
-                <input type="text" id="message-control" name="message" id="" class="form-control required text-center h-28 rounded-md" placeholder="¿Qué nos quieres contar?">
+                <label class="form-label w-ful flex justify-center">
+                    <span class="hidden absolute mx-3 text-sm"></span>
+                    <input type="text" id="name-control" name="name" class="form-control text-center rounded-md w-full" placeholder="Tu nombre">
+                </label>
+                <label class="form-label w-full flex justify-center">
+                    <span class="hidden absolute mx-3 text-sm"></span>
+                    <input type="email" id="email-control" name="email" class="form-control text-center rounded-md w-full" placeholder="Correo electrónico">
+                </label class="w-ful">
+                <label class="form-label w-full flex justify-center">
+                    <span class="hidden absolute mx-3 text-sm"></span>
+                    <input type="tel" id="phone-control" name="phone" class="form-control text-center rounded-md w-full" placeholder="Teléfono">
+                </label class="w-ful">
+                <label class="form-label w-full flex justify-center">
+                    <span class="hidden absolute mx-3 text-sm"></span>
+                    <input type="text" id="message-control" name="message" class="form-control text-center h-28 rounded-md w-full" placeholder="¿Qué nos quieres contar?">
+                </label>
             </section>
             <!-- form actions -->
             <section>
@@ -29,6 +41,36 @@ const { className } = Astro.props
         </form>
     </div>
 </div>
+
+<style>
+    @keyframes animate-bouncing {
+        from {
+            margin-top: 0px;
+        }
+
+        50% {
+            margin-top: 10px;
+        }
+
+        to {
+            margin-top: 0px;
+        }
+    }
+
+    .invalid {
+        padding-top: 15px;
+        border: 2px solid var(--error-color);
+    }
+    
+    .form-label:has(.invalid) {
+        animation: animate-bouncing 0.3s;
+    }
+
+    .form-label:has(.invalid) > span {
+        display: block;
+        color: var(--error-color);
+    }
+</style>
 
 <script>
     import { handleSubmitForm } from "@utils/contactForm";

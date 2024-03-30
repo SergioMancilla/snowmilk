@@ -1,0 +1,23 @@
+---
+interface Props {
+    title: string,
+    description: string,
+    imgUrl: string,
+    price: number,
+    className?: string
+}
+
+const { title, description, imgUrl, price, className } = Astro.props
+---
+
+<article class={`${className || ''} flex`}>
+    <picture class="w-24 h-24">
+        <div class="bg-red-400 w-full h-full">
+        </div>
+        <!-- <img src={imgUrl} alt={`Imagen de ${title}`}> -->
+    </picture>
+    <main class="flex flex-col">
+        <strong>{title}</strong>
+    </main>
+</article>
+

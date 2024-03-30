@@ -1,0 +1,22 @@
+---
+import Base from '@layouts/Base.astro'
+import MenuSection from '@components/Menu/MenuSection.astro'
+import { drinkMenu, foodMenu, sweetMenu } from '@utils/lists/menu'
+
+const seoTags = {
+    description: 'Conoce nuestro menú. Tenemos bebidas increíbles, platillos deliciosos y ricos postres',
+    keywords: 'Menú, menu, bebidas, comida, platos, postre, helado, precios, domicilio'
+}
+
+---
+
+<Base title='Menú' seoTags={seoTags}>
+    <main class="flex flex-col p-6">
+        <h1 class="text-center text-2xl font-semibold">Nuestro menú</h1>
+        <div>
+            <MenuSection title='Bebidas' menu={ drinkMenu }></MenuSection>
+            <MenuSection title='Platillos' menu={ foodMenu }></MenuSection>
+            <MenuSection title='Postres' menu={ sweetMenu }></MenuSection>
+        </div>
+    </main>
+</Base>

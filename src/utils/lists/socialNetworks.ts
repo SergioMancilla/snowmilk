@@ -1,3 +1,5 @@
+import { whatsAppPhone } from "conf"
+
 type socialNetworkTag = 'facebook' | 'instagram' | 'tiktok' | 'whatsapp'
 
 interface socialNetworks {

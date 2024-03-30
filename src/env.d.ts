@@ -4,6 +4,8 @@
 interface ImportMetaEnv {
     readonly PUBLIC_SITE_URL: string;
     readonly PUBLIC_WHATSAPP_PHONE: String;
+    readonly EMAIL_API_KEY: string;
+    readonly EMAIL_RECEIVER: string;
 }
 
 interface importMeta {

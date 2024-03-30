@@ -1,5 +1,7 @@
 ---
 import Base from '@layouts/Base.astro'
+import SocialList from '@components/UI/SocialList.astro'
+import { sitePaths, getSitePath } from '@utils/lists/sitePaths'
 
 const seoTags = {
     description: 'Conoce más acerca de Snowmilk Teas, descubre nuestros deliciosos platillos y bebidas',
@@ -8,5 +10,67 @@ const seoTags = {
 ---
 
 <Base title="Acerca de Snowmilk" seoTags={seoTags}>
-    
+    <main class="flex flex-col items-center py-6 px-5">
+        <h1 class="font-semibold text-xl pb-6">Acerca de nosotros</h1>
+        <section class="w-full flex flex-col items-start">
+            <article>
+                <header>
+                    <h2 class="font-semibold mt-4 mb-2">
+                        ¿Quiénes somos?
+                    </h2>
+                </header>
+                <main>
+                    <p class="">
+                        Snowmilk teas es un negocio enfocado en la venta de té de burbujas (Bubble tea), inspirado en la cultura japonesa, y con sede en CDMX.
+                        <br>
+                        Snowmilk cuenta con un ambiente temático de ensueño y ofrece una experiencia única para quienes nos visitan.
+                    </p>
+                </main>
+            </article>
+
+            <article>
+                <header>
+                    <h2 class="font-semibold mt-4 mb-2">
+                        ¿Qué ofrecemos?
+                    </h2>
+                </header>
+                <main>
+                    <p class="">
+                        Snowmilk ofrece una gran variedad de bebidas preparadas con té, tapioca, y otros ingredientes como la matcha, siempre preparando preparando nuestros productos con la mejor calidad.
+                        Es por ello que nuestras frutas e insumos siempre están frescos.
+                    </p>
+                    Además de nuestra especialidad (las bebidas), tenemos platillos asiáticos y de otras cultutas, tales como:
+                    <ul class="flex gap-2 mt-2 flex-wrap">
+                        <li class="bg-purple-200 rounded-md px-2 text-[14px]">Ramen</li>
+                        <li class="bg-purple-200 rounded-md px-2 text-[14px]">Dumplings</li>
+                        <li class="bg-purple-200 rounded-md px-2 text-[14px]">Takoyakis</li>
+                        <li class="bg-purple-200 rounded-md px-2 text-[14px]">Helado de yougurt</li>
+                        <li class="bg-purple-200 rounded-md px-2 text-[14px]">Crepas</li>
+                    </ul>
+                    <p class="mt-2">
+                        Puedes consultar nuestro menú en el siguiente enlace:
+                    </p>
+                    <!-- To guarantee that menu be allways have the same path -->
+                    <a href="/menu" class="text-primary-500">{ `${import.meta.env.SITE.slice(0, -1)}${getSitePath('menu')}` }</a>
+                </main>
+            </article>
+
+            <article>
+                <header>
+                    <h2 class="font-semibold mt-4 mb-2">
+                        ¿Dónde nos puedes encontrar?
+                    </h2>
+                </header>
+                <main>
+                    <p class="">
+                        Estamos ubicados exactamente en <span class="">Hamburgo 66-Local B, Juárez, Cuauhtémoc, 06000 Ciudad de México, CDMX</span>.
+                        <em>Puedes encontrarnos haciendo click <a href="https://maps.app.goo.gl/XJvisQ6BvhGASbwt6" target="_blank" class="text-primary-600">aquí</a>.</em>
+                        <br>
+                    </p>
+                    También nos puedes encontrar en redes sociales:
+                    <SocialList className='flex justify-center py-4 gap-3' classIcons='fill-primary-400'>
+                </main>
+            </article>
+        </section>
+    </main>
 </Base>
