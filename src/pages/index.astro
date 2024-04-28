@@ -16,10 +16,10 @@ const seoTags = {
 		<h1 class="visually-hidden">Bienvenido a snowmilk</h1>
 		<MainCarousel className='top-header-mobile md:top-header' imgs={carouselImgs}></MainCarousel>
 
-		<div class="relative bg-white z-30 pt-12">
+		<section class="relative bg-white z-30 pt-12">
 			<ShortcutCardList className=''></ShortcutCardList>
 			
-			<section class="about w-full px-8 mt-8 py-10 flex flex-col gap-5 bg-purple-300">
+			<div class="about w-full px-8 mt-8 py-10 flex flex-col gap-5 bg-purple-300">
 				<ContentCard textAlign='left' className='transition-transform duration-200 hover:rotate-2 md:hover:rotate-1'>
 					<p>
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius laborum rerum repellat at optio magni
@@ -35,13 +35,69 @@ const seoTags = {
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius laborum rerum repellat at optio magni
 					</p>
 				</ContentCard>
-			</section>
-
-			<section class="flex justify-center items-center bg-purple-100 p-5 aspect-video md:aspect-[10/3.5]">
-				Más contenido aquí
-			</section>
+			</div>
 			
-		</div>
+		</section>
+
+		<!-- Static image -->
+		<section id="scnd-fixed-img" class="fixed top-[30%] w-full flex justify-center items-center bg-red-800 aspect-video md:aspect-[10/3.5]">
+			<picture>
+				<!-- This must be a large height image -->
+			</picture>
+		</section>
+
+		<!-- Container with transparent background -->
+		<section id="transparent-component" class="relative flex flex-col md:flex-row justify-center flex-wrap bg-transparent items-center bg-red-100 p-5">
+			<div class="flex justify-center items-center text-center bg-white aspect-square w-full md:max-w-[50%] md:aspect-video shadow-xl rounded-lg p-3 mb-3">Some text or image here</div>
+			<div class="flex justify-around items-center flex-wrap gap-2 gap-y-4">
+				<div class="flex justify-center items-center text-center w-[40%] aspect-square md:max-w-[30%] bg-white shadow-xl rounded-lg p-3">Some text or image here</div>
+				<div class="flex justify-center items-center text-center w-[40%] aspect-square md:max-w-[30%] bg-white shadow-xl rounded-lg p-3">Some text or image here</div>
+				<div class="flex justify-center items-center text-center w-[40%] aspect-square md:max-w-[30%] bg-white shadow-xl rounded-lg p-3">Some text or image here</div>
+				<div class="flex justify-center items-center text-center w-[40%] aspect-square md:max-w-[30%] bg-white shadow-xl rounded-lg p-3">Some text or image here</div>
+			</div>
+		</section>
+
+		<section class="relative z-10 flex justify-center items-center">
+			<div class="flex justify-center items-center w-full bg-gray-700 aspect-video md:aspect-[10/3.5]">
+				Another section
+			</div>
+			<div class="flex justify-center items-center w-full bg-gray-800 aspect-video md:aspect-[10/3.5]">
+				Another section
+			</div>
+		</section>
+
+		<section class="relative z-10 flex justify-center bg-gray-600 items-center aspect-video md:aspect-[10/3.5]">
+			Another section
+		</section>
 	</main>
 	<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
 </Base>
+
+<script>
+	/*
+	Hiding the sticky carousel to let show the another sticky image
+	*/
+	const transparentComponent = document.getElementById('transparent-component')
+	const carousel = document.getElementById('default-carousel')
+	const secondImageFixed = document.getElementById('scnd-fixed-img')
+
+	function elementIsVisibleInScreen (element: HTMLElement) {
+		const rect = element.getBoundingClientRect();
+		return (
+			rect.bottom >= 0 &&
+			rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+		)
+	}
+
+	function modifyZIndex() {
+		if (elementIsVisibleInScreen(transparentComponent)) {
+			carousel.style.zIndex = '-50'
+			secondImageFixed.style.zIndex = '0'
+		} else {
+			carousel.style.zIndex = '0'
+			secondImageFixed.style.zIndex = '-50'
+		}
+	}
+
+	window.addEventListener('scroll', modifyZIndex);
+</script>

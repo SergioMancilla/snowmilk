@@ -21,7 +21,7 @@ export const socialNetworks: socialNetworks[] = [
     },
     {
         name: 'WhatsApp',
-        url: `https://api.whatsapp.com/send?phone=${import.meta.env.PUBLIC_WHATSAPP_PHONE || ''}&text=%C2%A1Bienvenido!%20Cont%C3%A1ctanos`,
+        url: `https://api.whatsapp.com/send?phone=${whatsAppPhone}&text=%C2%A1Bienvenido!%20Cont%C3%A1ctanos`,
         tag: 'whatsapp'
     },
     {

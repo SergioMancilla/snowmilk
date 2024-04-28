@@ -1,0 +1,24 @@
+---
+import Base from '@layouts/Base.astro'
+import PhotoCard from '@components/UI/PhotoCard.astro'
+import { experienceImgs } from '@utils/lists/experienceImages'
+
+const seoTags = {
+    description: 'Conoce nuestra sede, hubicada en Hamburgo 66, Local 2',
+    keywords: 'sitio, lugar, fotos, ubicación',
+}
+
+---
+
+<Base title="Contáctanos" seoTags={seoTags}>
+    <h1 class="font-madimi text-center text-3xl mt-10 md:text-5xl">Nuestra experiencia</h1>
+    <main class="items-center w-full p-10">
+        <div class="relative flex flex-col justify-center flex-wrap gap-4 md:grid md:grid-cols-3">
+            {
+                experienceImgs.map(img => {
+                    return <PhotoCard url={img.url} alt={img.url} className='' />
+                })
+            }
+        </div>
+    </main>
+</Base>

@@ -104,7 +104,7 @@ function removeErrorMsg (element: HTMLInputElement) {
 }
 
 function sendForm(emailDTO: ContactInfo) {
-    fetch('api/sendEmail', {
+    fetch('api/send-email', {
         method: 'POST',
         body: JSON.stringify(emailDTO)
     })

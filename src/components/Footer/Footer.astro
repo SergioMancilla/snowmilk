@@ -2,12 +2,13 @@
 import FooterMenuItem from './FooterMenuItem.astro'
 import SocialList from '@components/UI/SocialList.astro'
 import { sitePaths } from '@utils/lists/sitePaths';
+import { getSitePath } from '@utils/lists/sitePaths';
 
 ---
 <footer class="flex flex-col justify-center items-center bg-purple-500 relative h-footer px-3 py-8">
     <section>
         <h2 class="font-[madimi] text-primary-200 text-xl">
-            Snowmilk Teas
+            <a href={ getSitePath('home') }>Snowmilk Teas</a>
         </h2>
     </section>
     <main class="flex items-center justify-between px-3 w-full md:flex-col">

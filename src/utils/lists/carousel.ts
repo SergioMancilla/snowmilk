@@ -1,9 +1,9 @@
-interface carouselImg {
+interface CarouselImg {
     url: string,
     alt: string
 }
 
-export const carouselImgs: carouselImg[] = [
+export const carouselImgs: CarouselImg[] = [
 	{
 		url: '/assets/img/carousel/yellow.png',
 		alt: 'Image #1'

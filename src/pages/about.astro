@@ -1,7 +1,7 @@
 ---
 import Base from '@layouts/Base.astro'
 import SocialList from '@components/UI/SocialList.astro'
-import { sitePaths, getSitePath } from '@utils/lists/sitePaths'
+import { getSitePath } from '@utils/lists/sitePaths'
 
 const seoTags = {
     description: 'Conoce más acerca de Snowmilk Teas, descubre nuestros deliciosos platillos y bebidas',
@@ -10,12 +10,12 @@ const seoTags = {
 ---
 
 <Base title="Acerca de Snowmilk" seoTags={seoTags}>
-    <main class="flex flex-col items-center py-6 px-5">
-        <h1 class="font-semibold text-xl pb-6">Acerca de nosotros</h1>
-        <section class="w-full flex flex-col items-start">
+    <main class="flex flex-col items-center py-6 px-5 max-w-[800px] m-auto">
+        <h1 class="font-semibold text-xl pb-6 md:text-3xl md:pt-10">Acerca de nosotros</h1>
+        <section class="w-full flex flex-col items-start md:gap-2">
             <article>
                 <header>
-                    <h2 class="font-semibold mt-4 mb-2">
+                    <h2 class="font-semibold mt-4 mb-2 md:text-xl">
                         ¿Quiénes somos?
                     </h2>
                 </header>
@@ -30,7 +30,7 @@ const seoTags = {
 
             <article>
                 <header>
-                    <h2 class="font-semibold mt-4 mb-2">
+                    <h2 class="font-semibold mt-4 mb-2 md:text-xl">
                         ¿Qué ofrecemos?
                     </h2>
                 </header>
@@ -57,7 +57,7 @@ const seoTags = {
 
             <article>
                 <header>
-                    <h2 class="font-semibold mt-4 mb-2">
+                    <h2 class="font-semibold mt-4 mb-2 md:text-xl">
                         ¿Dónde nos puedes encontrar?
                     </h2>
                 </header>

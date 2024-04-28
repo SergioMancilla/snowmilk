@@ -33,16 +33,28 @@ export const sitePaths: SitePath[] = [
         tag: 'contact',
         name: 'Contáctanos',
         url: '/contact',
-        appearsIn: ['header', 'footer']
+        appearsIn: ['footer']
     },
     {
         tag: 'menu',
         name: 'Menú',
         url: '/menu',
+        appearsIn: ['header']
+    },
+    {
+        tag: 'social',
+        name: 'Redes sociales',
+        url: '/social',
+        appearsIn: []
+    },
+    {
+        tag: 'site',
+        name: 'Lugar',
+        url: '/site',
         appearsIn: []
     }
 ]
 
 export function getSitePath (name: typeof sitePaths[number]['tag']) {
-    return sitePaths.find(site => site.tag === name).url
+    return sitePaths.find(site => site.tag === name)?.url
 }

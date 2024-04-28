@@ -1,22 +1,25 @@
 ---
 import MenuCard from './MenuCard.astro'
-import type { Menu } from '@utils/lists/menu'
+import type { Asset } from '@services/get-assets'
 
 interface Props {
     title: string,
-    menu: Menu[]
+    menu: Asset[]
 }
 
 const { title, menu } = Astro.props
 ---
 
-<section>
-    <h2 class="font-semibold text-xl">{title}</h2>
-    {
-        menu.map(drink => {
-            return (
-                <MenuCard title={ drink.title } description={ drink.description } imgUrl={ drink.imgUrl } price={ drink.price } />
-            )
-        })
-    }
+<section class="mb-10 w-full max-w-[1000px] flex flex-col items-center">
+    <h2 class="font-semibold text-xl mb-4 py-1 text-white w-full text-center rounded-lg border-solid border-[2px] bg-gray-800">{title}</h2>
+    <div class="flex gap-3 md:gap-6 flex-wrap justify-center">
+        {
+            menu.map(menuItem => {
+                const metaData = menuItem?.context?.custom
+                return (
+                    <MenuCard id={menuItem.asset_id} title={ metaData.name } description={ metaData.description } imgUrl={ menuItem.secure_url } price={ metaData.price } />
+                )
+            })
+        }
+    </div>
 </section>

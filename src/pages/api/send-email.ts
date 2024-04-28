@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro"
-
 import { Resend } from 'resend'
+import { mailerApiKey, mailerReceiver } from '@conf'
 
 type ContactInfo = {
     name: string,
@@ -9,8 +9,9 @@ type ContactInfo = {
     message: string
 }
 
-const apiKey = ''//import.meta.env.EMAIL_API_KEY
-const receiver = '' //import.meta.env.EMAIL_RECEIVER
+// TODO parametrizar las variables
+const apiKey = mailerApiKey
+const receiver = mailerReceiver
 const resend = new Resend(apiKey)
 
 export const POST: APIRoute = async ({ request }) =>  {

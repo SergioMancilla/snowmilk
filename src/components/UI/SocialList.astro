@@ -5,19 +5,26 @@ import { socialNetworks } from '@utils/lists/socialNetworks'
  
 interface Props {
     className?: string,
-    classIcons?: string
+    classIcons?: string,
+    classTags?: string
+    withName?: boolean
+    withUrl?: boolean
 }
 
-const { className, classIcons } = Astro.props
+const { className, classIcons, classTags, withName, withUrl } = Astro.props
 ---
 
 <ul class={`${className}`}>
     {
         socialNetworks.map(socialNetwork => {
             return (
-                <SocialItem url={ socialNetwork.url }>
-                    <SocialSVG className={`${classIcons || ''}`} tag={socialNetwork.tag} />
-                </SocialItem>
+                <div class:list={classTags}>
+                    <SocialItem url={ socialNetwork.url }>
+                        <SocialSVG className={`${classIcons || ''}`} tag={socialNetwork.tag} />
+                    </SocialItem>
+                    <span class="font-madimi">{ withName && socialNetwork.name }</span>
+                    <span>{ withUrl && socialNetwork.name }</span>
+                </div>
             )
         })
     }

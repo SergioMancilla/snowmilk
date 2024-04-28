@@ -1,0 +1,15 @@
+---
+interface Props {
+  url: string,
+  alt: string,
+  className?: string
+}
+
+const { url, alt, className } = Astro.props;
+---
+
+<article class:list={["p-3 border border-solid rounded-xl shadow-[0_0_15px_1px_#f9a8d4]", className]}>
+  <picture>
+    <img src={url} alt={alt} class="w-full rounded-xl">
+  </picture>
+</article>

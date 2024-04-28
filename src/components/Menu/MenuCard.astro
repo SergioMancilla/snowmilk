@@ -1,23 +1,28 @@
 ---
 interface Props {
+    id: string,
     title: string,
     description: string,
     imgUrl: string,
-    price: number,
+    price: string,
     className?: string
 }
 
-const { title, description, imgUrl, price, className } = Astro.props
+const { id, title, description, imgUrl, price, className } = Astro.props
 ---
 
-<article class={`${className || ''} flex`}>
-    <picture class="w-24 h-24">
-        <div class="bg-red-400 w-full h-full">
-        </div>
-        <!-- <img src={imgUrl} alt={`Imagen de ${title}`}> -->
+<article class={`${className || ''} relative flex flex-col items-center w-[100px] md:w-[150px] hover:scale-105 duration-100`}>
+    <small class="absolute top-1 right-1 text-[11px] bg-purple-400 text-white rounded-lg px-1 border-solid border-[1px] border-white z-10">${price}</small>
+    <picture transition:name={`menu-item-${id}`} class="w-full aspect-square flex justify-center items-center border-solid border-[1px] rounded-md">
+        <img src={imgUrl} alt={`Imagen de ${title}`} class="rounded-md" />
     </picture>
-    <main class="flex flex-col">
-        <strong>{title}</strong>
+    <main class="flex items-center justify-between w-full">
+        <div class="flex flex-col h-full justify-start w-full px-1">
+            <div class="flex justify-center items-center">
+                <small class="font-semibold">{title}</small>
+            </div>
+        </div>
     </main>
+    <a href={`/menu/${id}`} class="absolute w-full h-full"></a>
 </article>
 

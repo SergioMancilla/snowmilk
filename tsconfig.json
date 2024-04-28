@@ -9,6 +9,8 @@
       "@utils/*": ["./src/utils/*"],
       "@i18n/*": ["./src/i18n/*"],
       "@assets/*": ["./src/assets/*"],
+      "@services/*": ["./src/services/*"],
+      "@conf": ["./conf.ts"]
     }
   }
 }

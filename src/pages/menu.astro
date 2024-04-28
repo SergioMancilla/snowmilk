@@ -1,22 +1,40 @@
 ---
 import Base from '@layouts/Base.astro'
 import MenuSection from '@components/Menu/MenuSection.astro'
-import { drinkMenu, foodMenu, sweetMenu } from '@utils/lists/menu'
+import RequestError from '@components/UI/RequestError.astro'
+import { publicUrlMenuPdf } from '@conf'
+import { getMenu } from '@utils/menu'
 
 const seoTags = {
     description: 'Conoce nuestro menú. Tenemos bebidas increíbles, platillos deliciosos y ricos postres',
     keywords: 'Menú, menu, bebidas, comida, platos, postre, helado, precios, domicilio'
 }
 
+const pageUrl = Astro.url.origin.toString()
+
+const imgTransformations = 'h_100'
+const drinkMenu = await getMenu('drinks', pageUrl, imgTransformations)
+const foodMenu = await getMenu('dishes', pageUrl, imgTransformations)
+const sweetMenu = await getMenu('desserts', pageUrl, imgTransformations)
 ---
 
 <Base title='Menú' seoTags={seoTags}>
-    <main class="flex flex-col p-6">
-        <h1 class="text-center text-2xl font-semibold">Nuestro menú</h1>
-        <div>
-            <MenuSection title='Bebidas' menu={ drinkMenu }></MenuSection>
-            <MenuSection title='Platillos' menu={ foodMenu }></MenuSection>
-            <MenuSection title='Postres' menu={ sweetMenu }></MenuSection>
+    <main class="flex flex-col py-6 items-center">
+        <h1 class="font-madimi text-center text-4xl font-semibold mb-5">Nuestro menu</h1>
+        <div class="w-full flex flex-col items-center px-3">
+            { drinkMenu.menu.length > 0 && <MenuSection title='Bebidas' menu={ drinkMenu.menu } /> }
+            { foodMenu.menu.length > 0 && <MenuSection title='Platillos' menu={ foodMenu.menu } /> }
+            { sweetMenu.menu.length > 0 && <MenuSection title='Postres' menu={ sweetMenu.menu } /> }
+            {
+                (drinkMenu.status === false || foodMenu.status === false || sweetMenu.status === false)
+                && (
+                    <div class="flex flex-col mt-10">
+                        <RequestError className="" msg='¡Ups!. Ha habido un error al cargar una parte del menú' />
+                        <h3 class="mt-3">Para ver el menú completo puedes hacer click en el siguiente enlace</h3>
+                        <a href={publicUrlMenuPdf} class="text-primary-400 text-center">{publicUrlMenuPdf}</a>    
+                    </div>
+                )
+            }
         </div>
     </main>
 </Base>
