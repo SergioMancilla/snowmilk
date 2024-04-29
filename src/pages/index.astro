@@ -17,6 +17,13 @@ const seoTags = {
 		<MainCarousel className='top-header-mobile md:top-header' imgs={carouselImgs}></MainCarousel>
 
 		<section class="relative bg-white z-30 pt-12">
+			<p class="flex p-3">
+				<a class="flex" href="https://maps.app.goo.gl/HU55UDg7copS4TFd7" target="_blank">
+					<svg class="w-4 mr-2 hover:animate-vertical-bounce fill-primary-400" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+					Hamburgo 66-Local B, Juárez, Cuauhtémoc (CDMX)
+				</a>
+			</p>
+
 			<ShortcutCardList className=''></ShortcutCardList>
 			
 			<div class="about w-full px-8 mt-8 py-10 flex flex-col gap-5 bg-purple-300">
@@ -40,9 +47,10 @@ const seoTags = {
 		</section>
 
 		<!-- Static image -->
-		<section id="scnd-fixed-img" class="fixed top-[30%] w-full flex justify-center items-center bg-red-800 aspect-video md:aspect-[10/3.5]">
+		<section id="scnd-fixed-img" class="fixed top-[10%] -z-10 w-full flex justify-center items-center">
 			<picture>
 				<!-- This must be a large height image -->
+				<img src="/assets/img/test-static.jpg" alt="">
 			</picture>
 		</section>
 
@@ -70,17 +78,11 @@ const seoTags = {
 			Another section
 		</section>
 	</main>
-	<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+
+	<script is:inline transition:persist data-astro-rerun src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
 </Base>
 
 <script>
-	/*
-	Hiding the sticky carousel to let show the another sticky image
-	*/
-	const transparentComponent = document.getElementById('transparent-component')
-	const carousel = document.getElementById('default-carousel')
-	const secondImageFixed = document.getElementById('scnd-fixed-img')
-
 	function elementIsVisibleInScreen (element: HTMLElement) {
 		const rect = element.getBoundingClientRect();
 		return (
@@ -90,6 +92,10 @@ const seoTags = {
 	}
 
 	function modifyZIndex() {
+		const transparentComponent = document.getElementById('transparent-component')
+		const carousel = document.getElementById('default-carousel')
+		const secondImageFixed = document.getElementById('scnd-fixed-img')
+
 		if (elementIsVisibleInScreen(transparentComponent)) {
 			carousel.style.zIndex = '-50'
 			secondImageFixed.style.zIndex = '0'

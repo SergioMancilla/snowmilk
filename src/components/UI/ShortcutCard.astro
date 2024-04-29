@@ -9,7 +9,7 @@ const { title, url } = Astro.props;
 
 <article class="relative flex flex-col justify-center items-center h-[10rem] w-[10rem] bg-white ring-2 ring-gray-900/5 rounded-lg leading-none transition-all duration-300 shadow-[4px_4px_0px_4px_#FFA5C4] hover:shadow-[0px_-2px_0px_4px_#FF98BB] hover:translate-y-2 hover:cursor-pointer group">
     <a href={url} class="absolute w-full h-full"></a>
-    <header class="mb-2 group-hover:animate-wobble">
+    <header class="font-madimi mb-2 group-hover:animate-wobble">
         {title}
     </header>
     <slot />

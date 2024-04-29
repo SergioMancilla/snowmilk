@@ -18,7 +18,7 @@ export interface Asset {
       price: string
     }
   }
-  cartegoty?: string
+  category?: string
 }
 
 export type MenuType = 'dishes' | 'drinks' | 'desserts' | 'food'
@@ -52,7 +52,8 @@ async function getAssets (prefix: string, transformations: string, type: string 
   const menu = assetsResult.resources.map((menuAsset) => {
     const folder = menuAsset.folder
     if (folder !== prefix) {
-      menuAsset.cartegoty = folder.split('/')[folder.length - 1]
+      const recursiveFolders = folder.split('/')
+      menuAsset.category = recursiveFolders[recursiveFolders.length - 1]
     }
     if (transformations) {
       menuAsset.secure_url = menuAsset.secure_url.replace('/upload', `/upload/${transformations}`)
@@ -80,6 +81,10 @@ export async function getImage (assetId: string, transformations?: string): Prom
   })
 
   if (!imgResult) return null
+
+  if (transformations) {
+    imgResult.resources[0].secure_url = imgResult.resources[0].secure_url.replace('/upload', `/upload/${transformations}`)
+  }
 
   return imgResult.resources
 }

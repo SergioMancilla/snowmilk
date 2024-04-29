@@ -1,7 +1,9 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import Base from '@layouts/Base.astro'
 import MenuSection from '@components/Menu/MenuSection.astro'
 import RequestError from '@components/UI/RequestError.astro'
+import MenuSelector from '@components/Menu/MenuSelector.astro'
 import { publicUrlMenuPdf } from '@conf'
 import { getMenu } from '@utils/menu'
 
@@ -17,14 +19,15 @@ const drinkMenu = await getMenu('drinks', pageUrl, imgTransformations)
 const foodMenu = await getMenu('dishes', pageUrl, imgTransformations)
 const sweetMenu = await getMenu('desserts', pageUrl, imgTransformations)
 ---
-
 <Base title='Menú' seoTags={seoTags}>
+    <ViewTransitions slot='head'/>
+
     <main class="flex flex-col py-6 items-center">
         <h1 class="font-madimi text-center text-4xl font-semibold mb-5">Nuestro menu</h1>
         <div class="w-full flex flex-col items-center px-3">
-            { drinkMenu.menu.length > 0 && <MenuSection title='Bebidas' menu={ drinkMenu.menu } /> }
-            { foodMenu.menu.length > 0 && <MenuSection title='Platillos' menu={ foodMenu.menu } /> }
-            { sweetMenu.menu.length > 0 && <MenuSection title='Postres' menu={ sweetMenu.menu } /> }
+            { drinkMenu.menu.length > 0 && <MenuSection id='drink-menu' title='Bebidas' menu={ drinkMenu.menu } /> }
+            { foodMenu.menu.length > 0 && <MenuSection id='food-menu' title='Platillos' menu={ foodMenu.menu } /> }
+            { sweetMenu.menu.length > 0 && <MenuSection id='dessert-menu' title='Postres' menu={ sweetMenu.menu } /> }
             {
                 (drinkMenu.status === false || foodMenu.status === false || sweetMenu.status === false)
                 && (
@@ -36,5 +39,33 @@ const sweetMenu = await getMenu('desserts', pageUrl, imgTransformations)
                 )
             }
         </div>
+        <MenuSelector id="menu-selector" className='fixed bottom-3 mb-3 right-5 z-10 transition-all duration-500' direction='vertical'/>
     </main>
 </Base>
+
+<style>
+    .let-show-footer {
+        display: none;
+    }
+</style>
+
+<script>
+    function elementIsVisibleInScreen (element: HTMLElement) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+        )
+    }
+
+    function modifyZIndex() {
+    const footer = document.getElementById('footer')
+        const menuSelector = document.getElementById('menu-selector')
+
+        if (elementIsVisibleInScreen(footer)) {
+            menuSelector.classList.add('bottom-[9rem]')
+        } else {
+            menuSelector.classList.remove('bottom-[9rem]')
+        }
+    }
+    window.addEventListener('scroll', modifyZIndex);
+</script>

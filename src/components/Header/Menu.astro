@@ -27,6 +27,8 @@ import { sitePaths } from '@utils/lists/sitePaths';
 </nav>
 
 <script>
+    document.addEventListener('astro:page-load', () =>  addEvents())
+
     addEvents()
 
     function addEvents () {

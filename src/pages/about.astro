@@ -2,6 +2,7 @@
 import Base from '@layouts/Base.astro'
 import SocialList from '@components/UI/SocialList.astro'
 import { getSitePath } from '@utils/lists/sitePaths'
+import RappiSVG from '@components/svg/RappiSVG.astro'
 
 const seoTags = {
     description: 'Conoce más acerca de Snowmilk Teas, descubre nuestros deliciosos platillos y bebidas',
@@ -10,8 +11,8 @@ const seoTags = {
 ---
 
 <Base title="Acerca de Snowmilk" seoTags={seoTags}>
-    <main class="flex flex-col items-center py-6 px-5 max-w-[800px] m-auto">
-        <h1 class="font-semibold text-xl pb-6 md:text-3xl md:pt-10">Acerca de nosotros</h1>
+    <main class="flex flex-col items-center py-6 px-8 max-w-[800px] m-auto">
+        <h1 class="font-semibold text-3xl pb-6 md:text-3xl md:pt-10">Acerca de nosotros</h1>
         <section class="w-full flex flex-col items-start md:gap-2">
             <article>
                 <header>
@@ -42,10 +43,10 @@ const seoTags = {
                     Además de nuestra especialidad (las bebidas), tenemos platillos asiáticos y de otras cultutas, tales como:
                     <ul class="flex gap-2 mt-2 flex-wrap">
                         <li class="bg-purple-200 rounded-md px-2 text-[14px]">Ramen</li>
-                        <li class="bg-purple-200 rounded-md px-2 text-[14px]">Dumplings</li>
                         <li class="bg-purple-200 rounded-md px-2 text-[14px]">Takoyakis</li>
                         <li class="bg-purple-200 rounded-md px-2 text-[14px]">Helado de yougurt</li>
                         <li class="bg-purple-200 rounded-md px-2 text-[14px]">Crepas</li>
+                        <li class="bg-purple-200 rounded-md px-2 text-[14px]">Cheesecakes</li>
                     </ul>
                     <p class="mt-2">
                         Puedes consultar nuestro menú en el siguiente enlace:
@@ -67,8 +68,11 @@ const seoTags = {
                         <em>Puedes encontrarnos haciendo click <a href="https://maps.app.goo.gl/XJvisQ6BvhGASbwt6" target="_blank" class="text-primary-600">aquí</a>.</em>
                         <br>
                     </p>
-                    También nos puedes encontrar en redes sociales:
-                    <SocialList className='flex justify-center py-4 gap-3' classIcons='fill-primary-400'>
+                    También nos puedes encontrar en redes sociales y en Rappi:
+                    <div class="flex justify-center items-center">
+                        <SocialList className='flex justify-center py-4 gap-3' classIcons='fill-primary-400' />
+                        <RappiSVG type='logo' className='w-10 h-10 ml-3' fillColor='#f472b9'/>
+                    </div>
                 </main>
             </article>
         </section>

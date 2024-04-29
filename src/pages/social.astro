@@ -1,10 +1,11 @@
 ---
 import Base from '@layouts/Base.astro'
 import SocialList from '@components/UI/SocialList.astro'
+import RappiSVG from '@components/svg/RappiSVG.astro'
 
 const seoTags = {
     description: 'Contáctanos a través de nuestras redes sociales',
-    keywords: 'contacto, snowmilk, redes sociales, Facebook, Instagram, Whatsapp, TikTok',
+    keywords: 'contacto, snowmilk, redes sociales, Facebook, Instagram, Whatsapp, TikTok, Rappi',
 }
 ---
 
@@ -14,5 +15,8 @@ const seoTags = {
       <div class="md:flex md:gap-[100px]">
         <SocialList withName classTags='flex flex-col items-center text-purple-700' className="p-5 grid grid-cols-2 gap-8" classIcons='fill-purple-400 w-20 h-20 md:w-30 md:h-30 hover:scale-105 hover:animate-rotate-360'></SocialList>
       </div>
+
+      <h2 class="text-lg font-semibold mt-10">También en:</h2>
+      <RappiSVG type='text' className='w-[90px] md:w-[100px] mt-4 fill-black hover:scale-105 duration-200'>
     </main>
 </Base>

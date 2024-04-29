@@ -1,0 +1,122 @@
+---
+import { getLangFromUrl } from '@i18n/utils'
+import { getSitePath } from '@utils/lists/sitePaths'
+
+const cannonicalUrl = new URL(Astro.url.pathname, Astro.site)
+const lang = getLangFromUrl(Astro.url)
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="shortcut icon" href="" />
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="stylesheet" href="../assets/css/main.css">
+
+		<!-- SEO -->
+		<meta name="description" content='Not found'>
+		<meta name="keywords" content='Not found'>
+		<meta name="author" content="Snowmilk Teas">
+		<meta name="robots" content="noindex, nofollow">
+
+		<!-- URL Canónica -->
+		<link rel="canonical" href={cannonicalUrl}>
+
+		<slot name="head" />
+
+		<title>Snowmilk</title>
+	</head>
+	<body>
+    <main class="main flex flex-col justify-center items-center">
+      <h2 class="brand">Snowmilk Teas</h2>
+      <svg class="svg" data-name="Capa 1" viewBox="0 0 107.91 78.03"><defs><style>.cls-1,.cls-2{font-size:69.12px;font-family:MyriadPro-Regular, Myriad Pro;}.cls-1{fill:#231f20;stroke:#231f20;stroke-miterlimit:10;}.cls-2{fill:#dd77af;}</style></defs><text class="cls-1" transform="translate(0.5 58.35)">404</text><text class="cls-2" transform="translate(1.54 60.75)">404</text></svg>
+      <h1 class="title">
+        ¡Ups! Nada por aquí
+      </h1>
+      <p class="not-found-info">
+        Parece que te equivocaste de dirección
+      </p>
+      <a class="back-button" href={ getSitePath('home') }>
+        Volver
+      </a>
+    </main>
+	</body>
+</html>
+
+<style>
+  html {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  .main {
+    margin-top: 100px
+  }
+
+  .brand {
+    font-family: madimi;
+    font-size: 1.5rem;
+  }
+
+  .title {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .svg {
+    height: 200px;
+  }
+
+  .not-found-info {
+    font-size: 1.4rem;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .back-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 30px;
+    color: black;
+    background-color: #F9B3F4;
+    border: 5px solid black;
+    border-radius: 25px;
+    box-shadow: 10px 10px 0 0 #70147c;
+    transition: 300ms;
+  }
+
+  .back-button:hover {
+    color: white;
+    background-color: #c945c0;
+    box-shadow: none;
+    transform: translate(10px, 10px);
+  }
+
+  @media only screen and (min-width: 768px) {
+    .svg {
+      height: 300px;
+    }
+
+    .title {
+      font-size: 50px;
+    }
+
+    .not-found-info {
+      font-size: 1.5rem;
+    }
+
+    .back-button {
+      font-size: 2rem;
+    }
+  }
+</style>

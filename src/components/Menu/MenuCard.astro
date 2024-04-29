@@ -5,10 +5,11 @@ interface Props {
     description: string,
     imgUrl: string,
     price: string,
+    category?: string,
     className?: string
 }
 
-const { id, title, description, imgUrl, price, className } = Astro.props
+const { id, title, category, imgUrl, price, className } = Astro.props
 ---
 
 <article class={`${className || ''} relative flex flex-col items-center w-[100px] md:w-[150px] hover:scale-105 duration-100`}>
@@ -23,6 +24,7 @@ const { id, title, description, imgUrl, price, className } = Astro.props
             </div>
         </div>
     </main>
+    { category && <small class="absolute bottom-10 left-1 text-[11px] bg-green-600 text-white rounded-lg px-1 border-solid border-[1px] border-white z-10">{category}</small> }
     <a href={`/menu/${id}`} class="absolute w-full h-full"></a>
 </article>
 

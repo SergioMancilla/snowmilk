@@ -4,8 +4,10 @@ import SocialList from '@components/UI/SocialList.astro'
 import { sitePaths } from '@utils/lists/sitePaths';
 import { getSitePath } from '@utils/lists/sitePaths';
 
+import RappiSVG from '@components/svg/RappiSVG.astro';
+
 ---
-<footer class="flex flex-col justify-center items-center bg-purple-500 relative h-footer px-3 py-8">
+<footer id="footer" class="flex flex-col justify-center items-center bg-purple-500 relative h-footer px-3 py-8">
     <section>
         <h2 class="font-[madimi] text-primary-200 text-xl">
             <a href={ getSitePath('home') }>Snowmilk Teas</a>
@@ -27,6 +29,12 @@ import { getSitePath } from '@utils/lists/sitePaths';
                 }
             </ul>
         </nav>
+
+        <div class="flex items-center gap-2">
+            <p class="text-primary-100">Encuéntranos en</p>
+            <RappiSVG type='text' className='w-10 h-10' fillColor='#fce7f2'/>
+        </div>
+
         <!-- Social networks -->
         <nav class="mt-3">
             <SocialList className='w-16 grid grid-cols-2 justify-center gap-2 md:gap-5 md:flex' classIcons="fill-primary-100 h-6 w-6 hover:scale-105">
